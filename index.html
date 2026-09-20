@@ -263,6 +263,28 @@
   footer li{margin-bottom:4px}
   @media (prefers-reduced-motion: reduce){*{transition:none !important}}
 </style>
+<style>
+  .btn.gpx{
+    background:transparent;
+    color:var(--accent);
+    border:1.5px solid var(--accent);
+    margin-top:7px;
+    font-size:13.5px;
+    padding:10px 13px;
+  }
+  .btn.gpx .arrow{font-size:11.5px;letter-spacing:.06em;opacity:.9}
+  .btn.gpx:focus-visible{outline:2px solid var(--nav);outline-offset:2px}
+  .downloads{display:flex;flex-direction:column;gap:6px;margin:10px 0 14px}
+  .downloads a{
+    display:flex;justify-content:space-between;align-items:center;gap:10px;
+    padding:10px 12px;background:var(--surface);border:1px solid var(--line);
+    border-radius:7px;color:var(--nav);text-decoration:none;font-size:14.5px;font-weight:600;
+  }
+  .downloads a .kind{
+    font-family:var(--font-m);font-size:10.5px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--ink-2);font-weight:500;
+  }
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -300,6 +322,7 @@
           <p class="via">Écija · Marchena · Morón de la Frontera · Montellano · Puerto Serrano</p>
           <div class="meta"><span class="chip time">Salida 07:00</span></div>
           <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=La+Carlota%2C+C%C3%B3rdoba&amp;destination=Algodonales%2C+C%C3%A1diz&amp;waypoints=%C3%89cija%7CMarchena%7CMor%C3%B3n+de+la+Frontera%7CMontellano%7CPuerto+Serrano&amp;travelmode=driving">Abrir en Google Maps <span class="arrow">&rarr;</span></a>
+          <a class="btn gpx" href="gpx/D1-E1.gpx" download>Descargar GPX de este tramo <span class="arrow">D1-E1</span></a>
         </div>
       </div>
 
@@ -352,6 +375,7 @@
           </div>
           <p class="via">Zahara de la Sierra · Grazalema</p>
           <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=Algodonales%2C+C%C3%A1diz&amp;destination=Ronda%2C+M%C3%A1laga&amp;waypoints=Zahara+de+la+Sierra%7CGrazalema&amp;travelmode=driving">Abrir en Google Maps <span class="arrow">&rarr;</span></a>
+          <a class="btn gpx" href="gpx/D1-E2.gpx" download>Descargar GPX de este tramo <span class="arrow">D1-E2</span></a>
         </div>
       </div>
 
@@ -420,6 +444,7 @@
           <p class="via">Atajate · Benadalid · Algatocín</p>
           <p class="note">Los pueblos van como puntos de control para que Maps no simplifique el recorrido y mantenga la A-369.</p>
           <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=Ronda%2C+M%C3%A1laga&amp;destination=Gauc%C3%ADn%2C+M%C3%A1laga&amp;waypoints=Atajate%7CBenadalid%7CAlgatoc%C3%ADn&amp;travelmode=driving">Abrir en Google Maps <span class="arrow">&rarr;</span></a>
+          <a class="btn gpx" href="gpx/D1-E3.gpx" download>Descargar GPX de este tramo <span class="arrow">D1-E3</span></a>
         </div>
       </div>
 
@@ -471,6 +496,7 @@
           <p class="via">Jimena de la Frontera · Alcalá de los Gazules</p>
           <div class="warn">Sin Puerto de Gáliz. Hay referencias a actuaciones pendientes en la A-405: conviene comprobar el estado de la vía los días previos al viaje.</div>
           <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=Gauc%C3%ADn%2C+M%C3%A1laga&amp;destination=Alcal%C3%A1+de+los+Gazules&amp;waypoints=Jimena+de+la+Frontera&amp;travelmode=driving">Abrir en Google Maps <span class="arrow">&rarr;</span></a>
+          <a class="btn gpx" href="gpx/D1-E4.gpx" download>Descargar GPX de este tramo <span class="arrow">D1-E4</span></a>
         </div>
       </div>
 
@@ -506,6 +532,7 @@
           <p class="via">Medina Sidonia · Vejer de la Frontera</p>
           <div class="meta"><span class="chip time">Llegada 18:30–19:30</span></div>
           <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=Alcal%C3%A1+de+los+Gazules&amp;destination=Los+Ca%C3%B1os+de+Meca&amp;waypoints=Medina+Sidonia%7CVejer+de+la+Frontera&amp;travelmode=driving">Abrir en Google Maps <span class="arrow">&rarr;</span></a>
+          <a class="btn gpx" href="gpx/D1-E5.gpx" download>Descargar GPX de este tramo <span class="arrow">D1-E5</span></a>
         </div>
       </div>
 
@@ -529,6 +556,7 @@
           </div>
           <p class="via">Vejer · Medina Sidonia · Paterna de Rivera</p>
           <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=Los+Ca%C3%B1os+de+Meca&amp;destination=San+Jos%C3%A9+del+Valle&amp;waypoints=Vejer+de+la+Frontera%7CMedina+Sidonia%7CPaterna+de+Rivera&amp;travelmode=driving">Abrir en Google Maps <span class="arrow">&rarr;</span></a>
+          <a class="btn gpx" href="gpx/D2-E1.gpx" download>Descargar GPX de este tramo <span class="arrow">D2-E1</span></a>
         </div>
       </div>
 
@@ -560,6 +588,7 @@
           </div>
           <p class="via">Algar · Arcos de la Frontera · Bornos · Villamartín</p>
           <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=San+Jos%C3%A9+del+Valle&amp;destination=Montellano%2C+Sevilla&amp;waypoints=Algar%7CArcos+de+la+Frontera%7CBornos%7CVillamart%C3%ADn&amp;travelmode=driving">Abrir en Google Maps <span class="arrow">&rarr;</span></a>
+          <a class="btn gpx" href="gpx/D2-E2.gpx" download>Descargar GPX de este tramo <span class="arrow">D2-E2</span></a>
         </div>
       </div>
 
@@ -594,6 +623,7 @@
           </div>
           <p class="via">Morón de la Frontera · Marchena · Écija</p>
           <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=Montellano%2C+Sevilla&amp;destination=La+Carlota%2C+C%C3%B3rdoba&amp;waypoints=Mor%C3%B3n+de+la+Frontera%7CMarchena%7C%C3%89cija&amp;travelmode=driving">Abrir en Google Maps <span class="arrow">&rarr;</span></a>
+          <a class="btn gpx" href="gpx/D2-E3.gpx" download>Descargar GPX de este tramo <span class="arrow">D2-E3</span></a>
         </div>
       </div>
 
@@ -618,6 +648,14 @@
   </section>
 
   <footer>
+    <h4>Ficheros GPX</h4>
+    <p>Toca un fichero y elige la app de navegación cuando el móvil pregunte con qué abrirlo.
+       Carga las etapas de una en una; las paradas son puntos sueltos, no una ruta.</p>
+    <div class="downloads">
+      <a href="gpx/PARADAS.gpx" download>Paradas de los dos días <span class="kind">waypoints</span></a>
+      <a href="gpx/DIA-1-completo.gpx" download>Día 1 completo <span class="kind">5 etapas</span></a>
+      <a href="gpx/DIA-2-completo.gpx" download>Día 2 completo <span class="kind">3 etapas</span></a>
+    </div>
     <h4>Instalarlo en el móvil</h4>
     <ol>
       <li>Abre esta página en el móvil.</li>

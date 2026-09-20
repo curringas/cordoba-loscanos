@@ -1,11 +1,22 @@
-const CACHE = 'roadbook-canos-v1';
+const CACHE = 'roadbook-canos-v2';
 const ASSETS = [
   './',
   './index.html',
   './manifest.webmanifest',
   './icon-192.png',
   './icon-512.png',
-  './icon-maskable-512.png'
+  './icon-maskable-512.png',
+  './gpx/D1-E1.gpx',
+  './gpx/D1-E2.gpx',
+  './gpx/D1-E3.gpx',
+  './gpx/D1-E4.gpx',
+  './gpx/D1-E5.gpx',
+  './gpx/D2-E1.gpx',
+  './gpx/D2-E2.gpx',
+  './gpx/D2-E3.gpx',
+  './gpx/DIA-1-completo.gpx',
+  './gpx/DIA-2-completo.gpx',
+  './gpx/PARADAS.gpx'
 ];
 
 self.addEventListener('install', function (e) {
