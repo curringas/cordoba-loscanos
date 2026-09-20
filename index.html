@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Roadbook de la ruta en moto La Carlota - Los Canos de Meca: tramos, paradas y enlaces a Google Maps.">
+<meta name="theme-color" content="#B85410" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D1012" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Roadbook Canos">
+<style>
+  :root{
+    color-scheme: light dark;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  html,body{margin:0}
+  body{font-family:system-ui,sans-serif}
+  img{max-width:100%}
+  [hidden]{display:none !important}
+</style>
+<title>Roadbook Caños de Meca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+  :root{
+    --bg:#E9EBEE;
+    --surface:#FFFFFF;
+    --surface-2:#F2F4F6;
+    --ink:#14181B;
+    --ink-2:#575F68;
+    --line:#D2D7DC;
+    --accent:#B85410;
+    --accent-soft:#F8EADD;
+    --nav:#11507E;
+    --nav-soft:#E3EDF5;
+    --done:#2E6B4F;
+    --radius:10px;
+    --font-d:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --font-b:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+    --font-m:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0D1012;
+      --surface:#171B1F;
+      --surface-2:#1E242A;
+      --ink:#E6EAED;
+      --ink-2:#98A1AA;
+      --line:#2A3137;
+      --accent:#E4822F;
+      --accent-soft:#2A1C10;
+      --nav:#77B6E2;
+      --nav-soft:#12242F;
+      --done:#63B48D;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0D1012;
+    --surface:#171B1F;
+    --surface-2:#1E242A;
+    --ink:#E6EAED;
+    --ink-2:#98A1AA;
+    --line:#2A3137;
+    --accent:#E4822F;
+    --accent-soft:#2A1C10;
+    --nav:#77B6E2;
+    --nav-soft:#12242F;
+    --done:#63B48D;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--font-b);
+    font-size:16px;
+    line-height:1.5;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:580px;margin:0 auto;padding-inline:16px;padding-block:0 56px}
+
+  /* ---------- cabecera ---------- */
+  header.top{
+    position:sticky;
+    top:env(safe-area-inset-top, 0px);
+    z-index:20;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    margin-inline:-16px;
+    padding:10px 16px 0;
+  }
+  .brand{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .brand h1{
+    font-family:var(--font-d);
+    font-weight:800;
+    font-size:19px;
+    letter-spacing:-.01em;
+    margin:0;
+    text-wrap:balance;
+  }
+  .brand .moto{
+    font-family:var(--font-m);
+    font-size:11px;
+    color:var(--ink-2);
+    letter-spacing:.04em;
+    text-transform:uppercase;
+  }
+  .tabs{display:flex;gap:6px;margin-top:10px}
+  .tabs button{
+    flex:1;
+    font-family:var(--font-d);
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:.01em;
+    color:var(--ink-2);
+    background:transparent;
+    border:0;
+    border-bottom:3px solid transparent;
+    padding:8px 4px 9px;
+    cursor:pointer;
+    border-radius:4px 4px 0 0;
+  }
+  .tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+  .tabs button:focus-visible{outline:2px solid var(--nav);outline-offset:1px}
+  .progress{display:flex;align-items:center;gap:10px;padding:8px 0 10px}
+  .bar{flex:1;height:5px;background:var(--line);border-radius:3px;overflow:hidden}
+  .bar span{display:block;height:100%;width:0;background:var(--done);transition:width .25s ease}
+  .progress .count{font-family:var(--font-m);font-size:12px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+  .reset{
+    background:none;border:0;padding:0;font-family:var(--font-b);font-size:12px;
+    color:var(--ink-2);text-decoration:underline;cursor:pointer;
+  }
+
+  /* ---------- rail ---------- */
+  .day{padding-top:14px}
+  .day[hidden]{display:none !important}
+  .rail{position:relative;padding-left:46px}
+  .rail::before{
+    content:"";position:absolute;left:15px;top:10px;bottom:22px;
+    width:2px;background:var(--line);
+  }
+  .item{position:relative;margin-bottom:12px}
+  .mark{
+    position:absolute;left:-46px;top:12px;
+    width:32px;text-align:center;
+    font-family:var(--font-m);font-weight:600;
+  }
+  .mark .post{
+    display:block;width:32px;height:32px;line-height:32px;
+    background:var(--accent);color:#fff;font-size:14px;
+    border-radius:4px;
+  }
+  .mark .dot{
+    display:block;width:14px;height:14px;margin:9px auto;
+    background:var(--surface);border:2px solid var(--line);border-radius:50%;
+  }
+  .item.is-done .mark .dot{border-color:var(--done);background:var(--done)}
+  .item.is-done .mark .post{background:var(--done)}
+
+  /* ---------- tarjetas ---------- */
+  .card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:14px 14px 13px;
+  }
+  .card.stop{background:var(--surface-2);padding:12px 13px}
+  .item.is-done .card{opacity:.62}
+  .head{display:flex;gap:10px;align-items:flex-start;justify-content:space-between}
+  .eyebrow{
+    font-family:var(--font-m);
+    font-size:10.5px;
+    letter-spacing:.11em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:0 0 3px;
+  }
+  .card.stop .eyebrow{color:var(--ink-2)}
+  h2.t{
+    font-family:var(--font-d);font-weight:700;font-size:17px;
+    margin:0;letter-spacing:-.01em;line-height:1.25;text-wrap:balance;
+  }
+  h3.t{
+    font-family:var(--font-d);font-weight:600;font-size:15px;
+    margin:0;letter-spacing:-.005em;line-height:1.3;
+  }
+  .via{
+    font-family:var(--font-m);font-size:12.5px;line-height:1.55;
+    color:var(--ink-2);margin:7px 0 0;
+  }
+  .note{font-size:14.5px;color:var(--ink-2);margin:7px 0 0}
+  .note strong{color:var(--ink);font-weight:600}
+  .meta{
+    display:flex;flex-wrap:wrap;gap:6px;margin-top:9px;
+  }
+  .chip{
+    font-family:var(--font-m);font-size:11px;letter-spacing:.02em;
+    background:var(--accent-soft);color:var(--accent);
+    padding:3px 7px;border-radius:4px;white-space:nowrap;
+  }
+  .chip.time{background:var(--nav-soft);color:var(--nav)}
+
+  .btn{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    margin-top:11px;padding:12px 14px;
+    background:var(--nav);color:#fff;text-decoration:none;
+    border-radius:8px;
+    font-family:var(--font-d);font-weight:700;font-size:14.5px;letter-spacing:.01em;
+  }
+  .btn .arrow{font-family:var(--font-m);font-weight:500;opacity:.85}
+  .btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  .links{display:flex;flex-direction:column;gap:1px;margin-top:9px}
+  .links a{
+    display:flex;justify-content:space-between;align-items:center;gap:10px;
+    padding:9px 11px;background:var(--surface);
+    border:1px solid var(--line);border-radius:7px;
+    color:var(--nav);text-decoration:none;font-size:14.5px;font-weight:600;
+  }
+  .links a .kind{
+    font-family:var(--font-m);font-size:10.5px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--ink-2);font-weight:500;
+  }
+  .links a:focus-visible{outline:2px solid var(--nav);outline-offset:1px}
+
+  .tick{
+    flex:0 0 auto;
+    width:34px;height:34px;margin:-3px -3px 0 0;
+    border:1.5px solid var(--line);border-radius:7px;
+    background:transparent;color:var(--ink-2);
+    font-family:var(--font-m);font-size:15px;line-height:1;
+    cursor:pointer;
+  }
+  .tick[aria-pressed="true"]{border-color:var(--done);color:var(--done);background:transparent}
+  .tick:focus-visible{outline:2px solid var(--nav);outline-offset:1px}
+
+  .warn{
+    margin-top:9px;padding:9px 11px;
+    border-left:3px solid var(--accent);background:var(--accent-soft);
+    border-radius:0 6px 6px 0;font-size:14px;color:var(--ink);
+  }
+
+  .day-end{
+    margin:4px 0 0;padding:13px 14px;
+    border:1px dashed var(--line);border-radius:var(--radius);
+    font-family:var(--font-d);font-weight:600;font-size:15px;
+  }
+  .day-end span{display:block;font-family:var(--font-b);font-weight:400;font-size:14px;color:var(--ink-2);margin-top:3px}
+
+  footer{
+    margin-top:26px;padding-top:16px;border-top:1px solid var(--line);
+    font-size:14px;color:var(--ink-2);
+  }
+  footer h4{font-family:var(--font-d);font-size:14px;margin:0 0 6px;color:var(--ink)}
+  footer p{margin:0 0 9px}
+  footer ol{margin:0;padding-left:18px}
+  footer li{margin-bottom:4px}
+  @media (prefers-reduced-motion: reduce){*{transition:none !important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="brand">
+      <h1>Córdoba &rarr; Caños de Meca</h1>
+      <span class="moto">2 días · G650GS</span>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Días de la ruta">
+      <button role="tab" id="tab-d1" aria-controls="d1" aria-selected="true">Día 1 · Ida</button>
+      <button role="tab" id="tab-d2" aria-controls="d2" aria-selected="false">Día 2 · Vuelta</button>
+    </div>
+    <div class="progress">
+      <div class="bar"><span id="barfill"></span></div>
+      <div class="count" id="count">0/0</div>
+      <button class="reset" id="reset" type="button">reiniciar</button>
+    </div>
+  </header>
+
+  <!-- ================= DÍA 1 ================= -->
+  <section class="day" id="d1" role="tabpanel" aria-labelledby="tab-d1">
+    <div class="rail">
+
+      <div class="item" data-id="d1-t1">
+        <div class="mark"><span class="post">1</span></div>
+        <div class="card">
+          <div class="head">
+            <div>
+              <p class="eyebrow">Tramo 1</p>
+              <h2 class="t">La Carlota &rarr; Algodonales</h2>
+            </div>
+            <button class="tick" type="button" aria-pressed="false" aria-label="Marcar tramo como hecho">✓</button>
+          </div>
+          <p class="via">Écija · Marchena · Morón de la Frontera · Montellano · Puerto Serrano</p>
+          <div class="meta"><span class="chip time">Salida 07:00</span></div>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=La+Carlota%2C+C%C3%B3rdoba&amp;destination=Algodonales%2C+C%C3%A1diz&amp;waypoints=%C3%89cija%7CMarchena%7CMor%C3%B3n+de+la+Frontera%7CMontellano%7CPuerto+Serrano&amp;travelmode=driving">Abrir en Google Maps <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+
+      <div class="item" data-id="d1-p1">
+        <div class="mark"><span class="dot"></span></div>
+        <div class="card stop">
+          <div class="head">
+            <div>
+              <p class="eyebrow">Desayuno · Algodonales</p>
+              <h3 class="t">Restaurante Casa Paco</h3>
+            </div>
+            <button class="tick" type="button" aria-pressed="false" aria-label="Marcar parada como hecha">✓</button>
+          </div>
+          <p class="note">Venta de carretera en la zona de entrada al pueblo, abre muy temprano. Si prefieres entrar al pueblo, el <strong>Bar Canijo</strong> también sirve desayunos.</p>
+          <div class="meta"><span class="chip">30–40 min</span></div>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Restaurante+Casa+Paco+Algodonales">Casa Paco <span class="kind">Maps</span></a>
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Bar+Canijo+Algodonales">Bar Canijo <span class="kind">alternativa</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="item" data-id="d1-p2">
+        <div class="mark"><span class="dot"></span></div>
+        <div class="card stop">
+          <div class="head">
+            <div>
+              <p class="eyebrow">Repostaje · Algodonales</p>
+              <h3 class="t">Repsol A-384, PK 43,5</h3>
+            </div>
+            <button class="tick" type="button" aria-pressed="false" aria-label="Marcar parada como hecha">✓</button>
+          </div>
+          <p class="note">A pie de la A-384, cómoda para seguir sin desviarse. Horario publicado por Repsol: 06:30–22:00.</p>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Repsol+Algodonales">Repsol Algodonales <span class="kind">Maps</span></a>
+            <a href="tel:+34956137306">956 13 73 06 <span class="kind">llamar</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="item" data-id="d1-t2">
+        <div class="mark"><span class="post">2</span></div>
+        <div class="card">
+          <div class="head">
+            <div>
+              <p class="eyebrow">Tramo 2 · Sierra de Grazalema</p>
+              <h2 class="t">Algodonales &rarr; Ronda</h2>
+            </div>
+            <button class="tick" type="button" aria-pressed="false" aria-label="Marcar tramo como hecho">✓</button>
+          </div>
+          <p class="via">Zahara de la Sierra · Grazalema</p>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=Algodonales%2C+C%C3%A1diz&amp;destination=Ronda%2C+M%C3%A1laga&amp;waypoints=Zahara+de+la+Sierra%7CGrazalema&amp;travelmode=driving">Abrir en Google Maps <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+
+      <div class="item" data-id="d1-p3">
+        <div class="mark"><span class="dot"></span></div>
+        <div class="card stop">
+          <div class="head">
+            <div>
+              <p class="eyebrow">Parada de fotos</p>
+              <h3 class="t">Zahara de la Sierra</h3>
+            </div>
+            <button class="tick" type="button" aria-pressed="false" aria-label="Marcar parada como hecha">✓</button>
+          </div>
+          <p class="note">Aparcar, fotos y café si apetece. Sin parada gastronómica.</p>
+          <div class="meta"><span class="chip">15–20 min</span></div>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Zahara+de+la+Sierra">Zahara de la Sierra <span class="kind">Maps</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="item" data-id="d1-p4">
+        <div class="mark"><span class="dot"></span></div>
+        <div class="card stop">
+          <div class="head">
+            <div>
+              <p class="eyebrow">Café</p>
+              <h3 class="t">Grazalema</h3>
+            </div>
+            <button class="tick" type="button" aria-pressed="false" aria-label="Marcar parada como hecha">✓</button>
+          </div>
+          <div class="meta"><span class="chip">20–30 min</span></div>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=cafeter%C3%ADas+en+Grazalema">Cafeterías en Grazalema <span class="kind">buscar</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="item" data-id="d1-p5">
+        <div class="mark"><span class="dot"></span></div>
+        <div class="card stop">
+          <div class="head">
+            <div>
+              <p class="eyebrow">Café opcional · Ronda</p>
+              <h3 class="t">Martina Specialty Coffee</h3>
+            </div>
+            <button class="tick" type="button" aria-pressed="false" aria-label="Marcar parada como hecha">✓</button>
+          </div>
+          <p class="note">Calle Armiñán 29. Solo si llegas con tiempo: aquí interesa más la carretera que la visita.</p>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Martina+Specialty+Coffee+Ronda">Martina Specialty Coffee <span class="kind">Maps</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="item" data-id="d1-t3">
+        <div class="mark"><span class="post">3</span></div>
+        <div class="card">
+          <div class="head">
+            <div>
+              <p class="eyebrow">Tramo 3 · A-369</p>
+              <h2 class="t">Ronda &rarr; Gaucín</h2>
+            </div>
+            <button class="tick" type="button" aria-pressed="false" aria-label="Marcar tramo como hecho">✓</button>
+          </div>
+          <p class="via">Atajate · Benadalid · Algatocín</p>
+          <p class="note">Los pueblos van como puntos de control para que Maps no simplifique el recorrido y mantenga la A-369.</p>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=Ronda%2C+M%C3%A1laga&amp;destination=Gauc%C3%ADn%2C+M%C3%A1laga&amp;waypoints=Atajate%7CBenadalid%7CAlgatoc%C3%ADn&amp;travelmode=driving">Abrir en Google Maps <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+
+      <div class="item" data-id="d1-p6">
+        <div class="mark"><span class="dot"></span></div>
+        <div class="card stop">
+          <div class="head">
+            <div>
+              <p class="eyebrow">Comida · Gaucín</p>
+              <h3 class="t">Venta La Serranía</h3>
+            </div>
+            <button class="tick" type="button" aria-pressed="false" aria-label="Marcar parada como hecha">✓</button>
+          </div>
+          <p class="note">En el cruce A-405/A-369. Venta de carretera orientada a viajeros y con paso habitual de moteros. Comer, descansar, repostar y seguir.</p>
+          <div class="meta"><span class="chip">45–60 min</span></div>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Venta+La+Serran%C3%ADa+Gauc%C3%ADn">Venta La Serranía <span class="kind">Maps</span></a>
+            <a href="tel:+34651463185">651 46 31 85 <span class="kind">llamar</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="item" data-id="d1-p7">
+        <div class="mark"><span class="dot"></span></div>
+        <div class="card stop">
+          <div class="head">
+            <div>
+              <p class="eyebrow">Repostaje · Gaucín</p>
+              <h3 class="t">Salir con el depósito lleno</h3>
+            </div>
+            <button class="tick" type="button" aria-pressed="false" aria-label="Marcar parada como hecha">✓</button>
+          </div>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=gasolineras+en+Gauc%C3%ADn">Gasolineras en Gaucín <span class="kind">buscar</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="item" data-id="d1-t4">
+        <div class="mark"><span class="post">4</span></div>
+        <div class="card">
+          <div class="head">
+            <div>
+              <p class="eyebrow">Tramo 4 · A-405</p>
+              <h2 class="t">Gaucín &rarr; Jimena &rarr; Alcalá</h2>
+            </div>
+            <button class="tick" type="button" aria-pressed="false" aria-label="Marcar tramo como hecho">✓</button>
+          </div>
+          <p class="via">Jimena de la Frontera · Alcalá de los Gazules</p>
+          <div class="warn">Sin Puerto de Gáliz. Hay referencias a actuaciones pendientes en la A-405: conviene comprobar el estado de la vía los días previos al viaje.</div>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=Gauc%C3%ADn%2C+M%C3%A1laga&amp;destination=Alcal%C3%A1+de+los+Gazules&amp;waypoints=Jimena+de+la+Frontera&amp;travelmode=driving">Abrir en Google Maps <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+
+      <div class="item" data-id="d1-p8">
+        <div class="mark"><span class="dot"></span></div>
+        <div class="card stop">
+          <div class="head">
+            <div>
+              <p class="eyebrow">Descanso opcional · Jimena</p>
+              <h3 class="t">Cafetería-Bar Plácido</h3>
+            </div>
+            <button class="tick" type="button" aria-pressed="false" aria-label="Marcar parada como hecha">✓</button>
+          </div>
+          <p class="note">Desayunos, café y tapas.</p>
+          <div class="meta"><span class="chip">10–15 min</span></div>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Cafeter%C3%ADa+Bar+Pl%C3%A1cido+Jimena+de+la+Frontera">Bar Plácido <span class="kind">Maps</span></a>
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=cafeter%C3%ADas+en+Jimena+de+la+Frontera">Otras cafeterías <span class="kind">buscar</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="item" data-id="d1-t5">
+        <div class="mark"><span class="post">5</span></div>
+        <div class="card">
+          <div class="head">
+            <div>
+              <p class="eyebrow">Tramo 5 · final</p>
+              <h2 class="t">Alcalá &rarr; Los Caños de Meca</h2>
+            </div>
+            <button class="tick" type="button" aria-pressed="false" aria-label="Marcar tramo como hecho">✓</button>
+          </div>
+          <p class="via">Medina Sidonia · Vejer de la Frontera</p>
+          <div class="meta"><span class="chip time">Llegada 18:30–19:30</span></div>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=Alcal%C3%A1+de+los+Gazules&amp;destination=Los+Ca%C3%B1os+de+Meca&amp;waypoints=Medina+Sidonia%7CVejer+de+la+Frontera&amp;travelmode=driving">Abrir en Google Maps <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+
+      <p class="day-end">Fin del día 1<span>Los Caños de Meca</span></p>
+    </div>
+  </section>
+
+  <!-- ================= DÍA 2 ================= -->
+  <section class="day" id="d2" role="tabpanel" aria-labelledby="tab-d2" hidden>
+    <div class="rail">
+
+      <div class="item" data-id="d2-t1">
+        <div class="mark"><span class="post">1</span></div>
+        <div class="card">
+          <div class="head">
+            <div>
+              <p class="eyebrow">Tramo 1</p>
+              <h2 class="t">Los Caños &rarr; San José del Valle</h2>
+            </div>
+            <button class="tick" type="button" aria-pressed="false" aria-label="Marcar tramo como hecho">✓</button>
+          </div>
+          <p class="via">Vejer · Medina Sidonia · Paterna de Rivera</p>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=Los+Ca%C3%B1os+de+Meca&amp;destination=San+Jos%C3%A9+del+Valle&amp;waypoints=Vejer+de+la+Frontera%7CMedina+Sidonia%7CPaterna+de+Rivera&amp;travelmode=driving">Abrir en Google Maps <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+
+      <div class="item" data-id="d2-p1">
+        <div class="mark"><span class="dot"></span></div>
+        <div class="card stop">
+          <div class="head">
+            <div>
+              <p class="eyebrow">Café</p>
+              <h3 class="t">San José del Valle</h3>
+            </div>
+            <button class="tick" type="button" aria-pressed="false" aria-label="Marcar parada como hecha">✓</button>
+          </div>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=cafeter%C3%ADas+en+San+Jos%C3%A9+del+Valle">Cafeterías en San José del Valle <span class="kind">buscar</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="item" data-id="d2-t2">
+        <div class="mark"><span class="post">2</span></div>
+        <div class="card">
+          <div class="head">
+            <div>
+              <p class="eyebrow">Tramo 2 · ruta de los pueblos blancos</p>
+              <h2 class="t">San José del Valle &rarr; Montellano</h2>
+            </div>
+            <button class="tick" type="button" aria-pressed="false" aria-label="Marcar tramo como hecho">✓</button>
+          </div>
+          <p class="via">Algar · Arcos de la Frontera · Bornos · Villamartín</p>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=San+Jos%C3%A9+del+Valle&amp;destination=Montellano%2C+Sevilla&amp;waypoints=Algar%7CArcos+de+la+Frontera%7CBornos%7CVillamart%C3%ADn&amp;travelmode=driving">Abrir en Google Maps <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+
+      <div class="item" data-id="d2-p2">
+        <div class="mark"><span class="dot"></span></div>
+        <div class="card stop">
+          <div class="head">
+            <div>
+              <p class="eyebrow">Parada larga</p>
+              <h3 class="t">Arcos de la Frontera</h3>
+            </div>
+            <button class="tick" type="button" aria-pressed="false" aria-label="Marcar parada como hecha">✓</button>
+          </div>
+          <p class="note">La parada con más margen del día 2.</p>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=cafeter%C3%ADas+en+Arcos+de+la+Frontera">Cafeterías en Arcos <span class="kind">buscar</span></a>
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=gasolineras+en+Arcos+de+la+Frontera">Gasolineras en Arcos <span class="kind">repostaje</span></a>
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=gasolineras+en+Villamart%C3%ADn">Gasolineras en Villamartín <span class="kind">alternativa</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="item" data-id="d2-t3">
+        <div class="mark"><span class="post">3</span></div>
+        <div class="card">
+          <div class="head">
+            <div>
+              <p class="eyebrow">Tramo 3 · vuelta a casa</p>
+              <h2 class="t">Montellano &rarr; La Carlota</h2>
+            </div>
+            <button class="tick" type="button" aria-pressed="false" aria-label="Marcar tramo como hecho">✓</button>
+          </div>
+          <p class="via">Morón de la Frontera · Marchena · Écija</p>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=Montellano%2C+Sevilla&amp;destination=La+Carlota%2C+C%C3%B3rdoba&amp;waypoints=Mor%C3%B3n+de+la+Frontera%7CMarchena%7C%C3%89cija&amp;travelmode=driving">Abrir en Google Maps <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+
+      <div class="item" data-id="d2-p3">
+        <div class="mark"><span class="dot"></span></div>
+        <div class="card stop">
+          <div class="head">
+            <div>
+              <p class="eyebrow">Último repostaje</p>
+              <h3 class="t">Écija, si hace falta</h3>
+            </div>
+            <button class="tick" type="button" aria-pressed="false" aria-label="Marcar parada como hecha">✓</button>
+          </div>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=gasolineras+en+%C3%89cija">Gasolineras en Écija <span class="kind">buscar</span></a>
+          </div>
+        </div>
+      </div>
+
+      <p class="day-end">Fin de ruta<span>La Carlota</span></p>
+    </div>
+  </section>
+
+  <footer>
+    <h4>Instalarlo en el móvil</h4>
+    <ol>
+      <li>Abre esta página en el móvil.</li>
+      <li>iPhone: botón Compartir &rarr; «Añadir a pantalla de inicio». Android: menú &rarr; «Instalar aplicación» o «Añadir a pantalla de inicio».</li>
+      <li>Queda como un icono más y abre a pantalla completa, sin barra del navegador.</li>
+    </ol>
+    <p>Las marcas de «hecho» se guardan en este móvil y no se comparten con nadie. Los botones azules abren cada tramo directamente en la app de Google Maps.</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var KEY = 'roadbook-canos-v1';
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch(e) { state = {}; }
+
+  function save(){
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e) {}
+  }
+
+  var days = { 'tab-d1': document.getElementById('d1'), 'tab-d2': document.getElementById('d2') };
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  var fill = document.getElementById('barfill');
+  var count = document.getElementById('count');
+
+  function currentDay(){
+    var active = tabs.filter(function(t){ return t.getAttribute('aria-selected') === 'true'; })[0];
+    return days[active.id];
+  }
+
+  function refresh(){
+    var day = currentDay();
+    var items = day.querySelectorAll('.item');
+    var done = 0;
+    Array.prototype.forEach.call(items, function(it){
+      if (it.classList.contains('is-done')) done++;
+    });
+    count.textContent = done + '/' + items.length;
+    fill.style.width = items.length ? (done / items.length * 100) + '%' : '0%';
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('.item'), function(item){
+    var id = item.getAttribute('data-id');
+    var btn = item.querySelector('.tick');
+    if (state[id]) { item.classList.add('is-done'); btn.setAttribute('aria-pressed','true'); }
+    btn.addEventListener('click', function(){
+      var on = !item.classList.contains('is-done');
+      item.classList.toggle('is-done', on);
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      state[id] = on;
+      save();
+      refresh();
+    });
+  });
+
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){
+        var on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        days[t.id].hidden = !on;
+      });
+      refresh();
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    });
+  });
+
+  document.getElementById('reset').addEventListener('click', function(){
+    state = {};
+    save();
+    Array.prototype.forEach.call(document.querySelectorAll('.item'), function(item){
+      item.classList.remove('is-done');
+      item.querySelector('.tick').setAttribute('aria-pressed','false');
+    });
+    refresh();
+  });
+
+  refresh();
+})();
+</script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function(){
+      navigator.serviceWorker.register('sw.js').catch(function(){});
+    });
+  }
+</script>
+
+</body>
+</html>
