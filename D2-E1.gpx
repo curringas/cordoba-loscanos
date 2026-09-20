@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Roadbook Canos de Meca" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>D2 E1 Los Canos - San Jose del Valle</name>
+    <desc>Vejer, Medina Sidonia y Paterna de Rivera.</desc>
+  </metadata>
+  <rte>
+    <name>D2 E1 Los Canos - San Jose del Valle</name>
+    <desc>Vejer, Medina Sidonia y Paterna de Rivera.</desc>
+    <rtept lat="36.18670" lon="-6.02640"><name>Los Canos de Meca</name></rtept>
+    <rtept lat="36.24456" lon="-5.96953"><name>Vejer de la Frontera</name></rtept>
+    <rtept lat="36.45695" lon="-5.92717"><name>Medina Sidonia</name></rtept>
+    <rtept lat="36.52246" lon="-5.86578"><name>Paterna de Rivera</name></rtept>
+    <rtept lat="36.60554" lon="-5.79895"><name>San Jose del Valle</name></rtept>
+  </rte>
+</gpx>

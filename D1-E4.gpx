@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Roadbook Canos de Meca" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>D1 E4 Gaucin - Alcala de los Gazules</name>
+    <desc>A-405 por Jimena. Sin Puerto de Galiz. Comprobar estado de la A-405 antes del viaje.</desc>
+  </metadata>
+  <rte>
+    <name>D1 E4 Gaucin - Alcala de los Gazules</name>
+    <desc>A-405 por Jimena. Sin Puerto de Galiz. Comprobar estado de la A-405 antes del viaje.</desc>
+    <rtept lat="36.51784" lon="-5.31581"><name>Gaucin</name></rtept>
+    <rtept lat="36.43517" lon="-5.45387"><name>Jimena de la Frontera</name></rtept>
+    <rtept lat="36.46212" lon="-5.72382"><name>Alcala de los Gazules</name></rtept>
+  </rte>
+</gpx>

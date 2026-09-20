@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Roadbook Canos de Meca" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>D2 E3 Montellano - La Carlota</name>
+    <desc>Moron, Marchena y Ecija. Ultimo repostaje en Ecija si hace falta.</desc>
+  </metadata>
+  <rte>
+    <name>D2 E3 Montellano - La Carlota</name>
+    <desc>Moron, Marchena y Ecija. Ultimo repostaje en Ecija si hace falta.</desc>
+    <rtept lat="36.99531" lon="-5.57145"><name>Montellano</name></rtept>
+    <rtept lat="37.12084" lon="-5.45403"><name>Moron de la Frontera</name></rtept>
+    <rtept lat="37.32900" lon="-5.41681"><name>Marchena</name></rtept>
+    <rtept lat="37.54220" lon="-5.08260"><name>Ecija</name></rtept>
+    <rtept lat="37.67359" lon="-4.93122"><name>La Carlota</name></rtept>
+  </rte>
+</gpx>

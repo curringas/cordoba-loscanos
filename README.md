@@ -5,6 +5,8 @@ No necesita build, ni Node, ni base de datos. Sirve la carpeta tal cual.
 
 ## Contenido
 
+Todos los ficheros van en la raíz del repositorio, sin subcarpetas.
+
 ```
 index.html              La página completa: CSS y JS embebidos
 manifest.webmanifest    Metadatos de instalación (nombre, iconos, color, standalone)

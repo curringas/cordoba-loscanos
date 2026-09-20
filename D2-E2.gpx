@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Roadbook Canos de Meca" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>D2 E2 San Jose del Valle - Montellano</name>
+    <desc>Algar, Arcos, Bornos y Villamartin. Parada larga en Arcos.</desc>
+  </metadata>
+  <rte>
+    <name>D2 E2 San Jose del Valle - Montellano</name>
+    <desc>Algar, Arcos, Bornos y Villamartin. Parada larga en Arcos.</desc>
+    <rtept lat="36.60554" lon="-5.79895"><name>San Jose del Valle</name></rtept>
+    <rtept lat="36.65748" lon="-5.65558"><name>Algar</name></rtept>
+    <rtept lat="36.75075" lon="-5.81056"><name>Arcos de la Frontera</name></rtept>
+    <rtept lat="36.81677" lon="-5.74448"><name>Bornos</name></rtept>
+    <rtept lat="36.85979" lon="-5.64485"><name>Villamartin</name></rtept>
+    <rtept lat="36.99531" lon="-5.57145"><name>Montellano</name></rtept>
+  </rte>
+</gpx>

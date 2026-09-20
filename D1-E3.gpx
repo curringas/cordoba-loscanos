@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Roadbook Canos de Meca" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>D1 E3 Ronda - Gaucin</name>
+    <desc>A-369 por el valle del Genal. Atajate y Algatocin fijan la carretera; Benadalid queda de paso.</desc>
+  </metadata>
+  <rte>
+    <name>D1 E3 Ronda - Gaucin</name>
+    <desc>A-369 por el valle del Genal. Atajate y Algatocin fijan la carretera; Benadalid queda de paso.</desc>
+    <rtept lat="36.74231" lon="-5.16709"><name>Ronda</name></rtept>
+    <rtept lat="36.64017" lon="-5.24606"><name>Atajate</name></rtept>
+    <rtept lat="36.57356" lon="-5.27554"><name>Algatocin</name></rtept>
+    <rtept lat="36.51784" lon="-5.31581"><name>Gaucin</name></rtept>
+  </rte>
+</gpx>

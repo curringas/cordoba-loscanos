@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Roadbook Canos de Meca" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>Paradas de la ruta</name>
+    <desc>Desayuno, repostajes, cafes y comida de los dos dias.</desc>
+  </metadata>
+  <wpt lat="36.88044" lon="-5.40536">
+    <name>Desayuno - Algodonales</name>
+    <desc>Restaurante Casa Paco, venta a la entrada del pueblo. Alternativa: Bar Canijo. 30-40 min. [Punto situado en el nucleo urbano, no en la puerta del local.]</desc>
+  </wpt>
+  <wpt lat="36.88044" lon="-5.40536">
+    <name>Repostaje - Algodonales</name>
+    <desc>Repsol A-384 PK 43,5. Horario publicado 06:30-22:00. Tel 956 13 73 06. [Punto situado en el nucleo urbano, no en la puerta del local.]</desc>
+  </wpt>
+  <wpt lat="36.84055" lon="-5.39128">
+    <name>Foto - Zahara de la Sierra</name>
+    <desc>Parada de fotos, 15-20 min. [Punto situado en el nucleo urbano, no en la puerta del local.]</desc>
+  </wpt>
+  <wpt lat="36.76018" lon="-5.36839">
+    <name>Cafe - Grazalema</name>
+    <desc>Parada de 20-30 min. [Punto situado en el nucleo urbano, no en la puerta del local.]</desc>
+  </wpt>
+  <wpt lat="36.74231" lon="-5.16709">
+    <name>Cafe opcional - Ronda</name>
+    <desc>Martina Specialty Coffee, Calle Arminan 29. [Punto situado en el nucleo urbano, no en la puerta del local.]</desc>
+  </wpt>
+  <wpt lat="36.51784" lon="-5.31581">
+    <name>Comida - Gaucin</name>
+    <desc>Venta La Serrania, cruce A-405/A-369. 45-60 min. Tel 651 46 31 85. [Punto situado en el nucleo urbano, no en la puerta del local.]</desc>
+  </wpt>
+  <wpt lat="36.51784" lon="-5.31581">
+    <name>Repostaje - Gaucin</name>
+    <desc>Salir con el deposito lleno. [Punto situado en el nucleo urbano, no en la puerta del local.]</desc>
+  </wpt>
+  <wpt lat="36.43517" lon="-5.45387">
+    <name>Cafe opcional - Jimena</name>
+    <desc>Cafeteria-Bar Placido. 10-15 min. [Punto situado en el nucleo urbano, no en la puerta del local.]</desc>
+  </wpt>
+  <wpt lat="36.18670" lon="-6.02640">
+    <name>Llegada - Los Canos de Meca</name>
+    <desc>Fin de etapa del dia 1. [Punto situado en el nucleo urbano, no en la puerta del local.]</desc>
+  </wpt>
+  <wpt lat="36.60554" lon="-5.79895">
+    <name>Cafe - San Jose del Valle</name>
+    <desc>Primera parada del dia 2. [Punto situado en el nucleo urbano, no en la puerta del local.]</desc>
+  </wpt>
+  <wpt lat="36.75075" lon="-5.81056">
+    <name>Parada larga - Arcos</name>
+    <desc>Parada con mas margen del dia 2. Repostaje posible aqui. [Punto situado en el nucleo urbano, no en la puerta del local.]</desc>
+  </wpt>
+  <wpt lat="36.85979" lon="-5.64485">
+    <name>Repostaje - Villamartin</name>
+    <desc>Alternativa de repostaje a Arcos. [Punto situado en el nucleo urbano, no en la puerta del local.]</desc>
+  </wpt>
+  <wpt lat="37.54220" lon="-5.08260">
+    <name>Repostaje - Ecija</name>
+    <desc>Ultimo repostaje antes de La Carlota. [Punto situado en el nucleo urbano, no en la puerta del local.]</desc>
+  </wpt>
+</gpx>

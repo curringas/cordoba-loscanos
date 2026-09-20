@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Roadbook Canos de Meca" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>D1 E2 Algodonales - Ronda</name>
+    <desc>Sierra de Grazalema. Zahara y Puerto de las Palomas hacia Grazalema, luego A-372 y A-374.</desc>
+  </metadata>
+  <rte>
+    <name>D1 E2 Algodonales - Ronda</name>
+    <desc>Sierra de Grazalema. Zahara y Puerto de las Palomas hacia Grazalema, luego A-372 y A-374.</desc>
+    <rtept lat="36.88044" lon="-5.40536"><name>Algodonales</name></rtept>
+    <rtept lat="36.84055" lon="-5.39128"><name>Zahara de la Sierra</name></rtept>
+    <rtept lat="36.76018" lon="-5.36839"><name>Grazalema</name></rtept>
+    <rtept lat="36.74231" lon="-5.16709"><name>Ronda</name></rtept>
+  </rte>
+</gpx>
